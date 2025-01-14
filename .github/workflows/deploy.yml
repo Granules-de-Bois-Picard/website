@@ -1,0 +1,81 @@
+name: Nuxt.js - Build and Deploy
+
+on:
+  push:
+    branches: [ "production" ]
+  pull_request:
+    branches: [ "production" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Create .env file and set variables
+        run: |
+          if [ ! -f .env ]; then
+            cp .env.example .env
+          fi
+          
+          sed -i "s/^VITE_API_URL=.*/VITE_API_URL=${{ secrets.VITE_API_URL }}/" .env
+          sed -i "s/^VITE_RECAPTCHA_SITE_KEY=.*/VITE_RECAPTCHA_SITE_KEY=${{ secrets.VITE_RECAPTCHA_SITE_KEY }}/" .env
+
+      - name: Build
+        run: npm run build
+
+      - name: Debug - List build output
+        run: |
+          echo "Contents of .output directory:"
+          ls -R .output
+          echo "Contents of .output/public directory:"
+          ls -R .output/public
+
+      - name: Generate static files
+        run: npm run generate
+
+      - name: Debug - List generated files
+        run: |
+          echo "Contents of .output directory after generate:"
+          ls -R .output
+          echo "Contents of .output/public directory after generate:"
+          ls -R .output/public
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+
+      - name: Deploy to Server via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            PROJECT_PATH="${{ secrets.PROJECT_PATH }}"
+          
+            if [ ! -d "$PROJECT_PATH" ]; then
+              mkdir -p "$PROJECT_PATH"
+            fi
+
+            cd "$PROJECT_PATH"
+
+            rsync -avz --delete .output/public/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
+          EOF
