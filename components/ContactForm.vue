@@ -24,10 +24,13 @@
         <p v-if="recaptchaError" class="mt-2 text-red-600 text-sm">Veuillez valider le reCAPTCHA</p>
       </div>
 
-      <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300">
-        Envoyer
+      <button type="submit" :disabled="isLoading" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300">
+        <span v-if="isLoading">Envoi...</span>
+        <span v-else>Envoyer</span>
         <ArrowLongRightIcon class="w-6 h-6 inline-block ml-2" />
       </button>
+
+      <p v-if="responseMessage" :class="responseClass" class="mt-4 text-center">{{ responseMessage }}</p>
     </form>
   </div>
 </template>
@@ -35,13 +38,16 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { ArrowLongRightIcon } from "@heroicons/vue/24/solid";
+import axios from "axios";
 
-// Remplacez VOTRE_CLE_SITE par votre clé reCAPTCHA
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const recaptchaContainer = ref<HTMLElement | null>(null);
 const recaptchaError = ref(false);
 const recaptchaToken = ref('');
+const isLoading = ref(false);
+const responseMessage = ref('');
+const responseClass = ref('');
 
 const formData = ref({
   fullname: '',
@@ -79,24 +85,32 @@ const handleSubmit = async () => {
     return;
   }
 
-  console.log('Form Data:', {
-    ...formData.value,
-    recaptchaToken: recaptchaToken.value
-  });
+  isLoading.value = true;
+  responseMessage.value = '';
+  responseClass.value = '';
+
+  let data = {
+    to: formData.value.email,
+    subject: 'Nouvelle demande de contact de ' + formData.value.fullname,
+    body: formData.value.message
+  }
+
+  try {
+    await axios.post(import.meta.env.VITE_API_URL + '/api/email/send', {
+      ...data,
+      recaptchaToken: recaptchaToken.value
+    });
+    responseMessage.value = 'Votre message a été envoyé avec succès.';
+    responseClass.value = 'text-green-600';
+  } catch (error) {
+    responseMessage.value = 'Une erreur est survenue lors de l\'envoi de votre message.';
+    responseClass.value = 'text-red-600';
+  } finally {
+    isLoading.value = false;
+  }
 };
 
 onMounted(() => {
   loadRecaptcha();
 });
-</script>
-
-<script lang="ts">
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (callback: () => void) => void;
-      render: (container: HTMLElement, options: any) => number;
-    };
-  }
-}
 </script>
