@@ -31,14 +31,21 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import axios from "axios";
 import { ArrowPathIcon } from "@heroicons/vue/24/outline";
 import { CalendarIcon } from "@heroicons/vue/24/solid";
-import {formatDate} from "compatx";
+
+interface Article {
+  slug: string;
+  thumbnail: string;
+  title: string;
+  created_at: string;
+  short_description: string;
+}
 
 const loading = ref(true);
-const articles = ref([]);
+const articles = ref<Article[]>([]);
 
 onMounted(async () => {
   loading.value = true;
@@ -52,7 +59,6 @@ onMounted(async () => {
     articles.value = response.data.data;
     loading.value = false;
   });
-  loading.value = false;
 });
 
 useHead({
