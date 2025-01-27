@@ -90,7 +90,7 @@ const handleSubmit = async () => {
   responseClass.value = '';
 
   let data = {
-    to: formData.value.email,
+    from: formData.value.email,
     subject: 'Nouvelle demande de contact de ' + formData.value.fullname,
     body: formData.value.message
   }
