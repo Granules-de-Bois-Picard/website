@@ -6,17 +6,17 @@
 
       <div class="mb-6">
         <label for="fullname" class="block text-sm text-gray-700 mb-2">Nom complet</label>
-        <input v-model="formData.fullname" type="text" id="fullname" placeholder="John Doe" class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" />
+        <input v-model="formData.fullname" type="text" id="fullname" placeholder="John Doe" class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" required minlength="2" maxlength="50" />
       </div>
 
       <div class="mb-6">
         <label for="email" class="block text-sm text-gray-700 mb-2">Email</label>
-        <input v-model="formData.email" type="email" id="email" placeholder="john.doe@example.com" class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" />
+        <input v-model="formData.email" type="email" id="email" placeholder="john.doe@example.com" class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
       </div>
 
       <div class="mb-6">
         <label for="message" class="block text-sm text-gray-700 mb-2">Message</label>
-        <textarea v-model="formData.message" id="message" placeholder="Votre message..." class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200"></textarea>
+        <textarea v-model="formData.message" id="message" placeholder="Votre message..." class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" required minlength="10" maxlength="500"></textarea>
       </div>
 
       <div class="mb-6">
