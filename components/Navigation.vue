@@ -28,7 +28,7 @@ const openMenu = () => {
         </NavigationButton>
       </li>
       <li>
-        <NavigationButton to="/" text="Nos Produits" />
+        <NavigationButton to="#products" text="Nos Produits" />
       </li>
       <li>
         <NavigationButton to="/news" text="Actualités" />

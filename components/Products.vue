@@ -61,7 +61,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 marge py-20">
+  <div class="flex flex-col items-center justify-center gap-4 marge py-20" id="products">
     <h2 class="font-canveat text-4xl text-primary">
       Nos produits
     </h2>
