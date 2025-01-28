@@ -22,7 +22,7 @@ const loading = ref(true);
 onMounted(async () => {
   loading.value = true;
   try {
-    const response = await axios.get(import.meta.env.VITE_API_URL + '/api/faq');
+    const response = await axios.get(import.meta.env.VITE_API_URL + '/api/articles');
     if (response.data.success) {
       faq.value = response.data.data;
     }
