@@ -50,7 +50,7 @@ const articles = ref<Article[]>([]);
 onMounted(async () => {
   loading.value = true;
   try {
-    const response = await axios.get(import.meta.env.VITE_API_URL + "/api/articles/");
+    const response = await axios.get(import.meta.env.VITE_API_URL + "/api/articles");
     articles.value = response.data.data;
   } catch (error) {
     console.error("Error fetching articles:", error);
