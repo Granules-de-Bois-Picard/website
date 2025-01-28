@@ -49,16 +49,14 @@ const articles = ref<Article[]>([]);
 
 onMounted(async () => {
   loading.value = true;
-  await axios.get(import.meta.env.VITE_API_URL + "/api/articles/",
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*"
-        }
-      }
-  ).then((response) => {
+  try {
+    const response = await axios.get(import.meta.env.VITE_API_URL + "/api/articles/");
     articles.value = response.data.data;
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+  } finally {
     loading.value = false;
-  });
+  }
 });
 
 useHead({
