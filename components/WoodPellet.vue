@@ -50,7 +50,7 @@ import { ArrowLongRightIcon, PhoneIcon } from "@heroicons/vue/24/solid";
     </div>
     <div class="relative flex-1 flex items-center justify-center">
       <div class="relative w-2/3">
-        <img src="@/assets/wood-pellet.png" alt="slide" class="object-cover w-full" />
+        <img src="https://gp-api.luwa.fr/storage/files/67a2b41f64690_1738716191.png" alt="slide" class="object-cover w-full" />
         <div class="absolute top-0 right-0 w-1/3 transform translate-x-1/3 min-w-[100px] min-h-[100px]">
           <img src="@/assets/stamp.png" alt="fire" class="h-auto object-cover animate-spin-slow" />
         </div>
