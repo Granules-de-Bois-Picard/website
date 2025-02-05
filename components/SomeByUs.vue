@@ -14,10 +14,12 @@ const numbers = ref([
 ]);
 
 const numbersMax = ref([
-    2000,
-    27,
-    96
+    3000,
+    2,
+    0
 ]);
+
+numbersMax.value[2] = new Date().getFullYear() - 2006;
 
 const props = defineProps<{
     cards: { imageUrl: string }[];
@@ -103,15 +105,15 @@ const goToPrev = () => {
     <div class="flex flex-wrap items-center justify-evenly gap-10 my-20" id="numbers">
         <div class="flex flex-col items-center gap-2">
           <span class="text-8xl font-bold text-primary">+{{ numbers[0] }}</span>
-          <span class="text-2xl font-semibold text-white">Réalisations</span>
+          <span class="text-2xl font-semibold text-white">Installations</span>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <span class="text-8xl font-bold text-primary">+{{ numbers[1] }}</span>
-          <span class="text-2xl font-semibold text-white">Poêles différents</span>
+          <span class="text-8xl font-bold text-primary">{{ numbers[1] }}</span>
+          <span class="text-2xl font-semibold text-white">Marques</span>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <span class="text-8xl font-bold text-primary">{{ numbers[2] }}%</span>
-          <span class="text-2xl font-semibold text-white">Satisfaction</span>
+          <span class="text-8xl font-bold text-primary">{{ numbers[2] }}</span>
+          <span class="text-2xl font-semibold text-white">Années d'expérience</span>
         </div>
     </div>
     <ClientOnly>
