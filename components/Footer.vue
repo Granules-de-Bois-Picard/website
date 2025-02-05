@@ -38,7 +38,7 @@
     <div class="marge py-20 flex flex-wrap items-start justify-center gap-10">
       <div class="flex-1 flex flex-col items-start justify-center gap-8 text-white text-left min-w-full md:min-w-[300px]">
         <img src="@/assets/logo.png" alt="Logo Granulés de bois Picard" class="h-16 w-auto" />
-        <p class="text-justify">Chez Granulés de bois Picard, nous vous proposons une large gamme de poêles à granulés, poêles à bois et poêles mixtes. Nous vous accompagnons dans le choix de votre poêle, son installation et son entretien. Nous vous proposons également un service de livraison de granulés de bois à domicile.</p>
+        <p class="text-justify">Chez Granulés de bois Picard, nous vous proposons une large gamme de poêles à granulés, poêles à bois et poêles mixtes. Nous vous accompagnons dans le choix de votre poêle, son installation et son entretien.</p>
         <div class="flex gap-4">
           <PhoneIcon class="w-6 h-6 text-primary" />
           <p>03 22 09 83 55</p>
