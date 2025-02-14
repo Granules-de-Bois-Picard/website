@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Pagination, Autoplay } from 'swiper/modules';
 import {ArrowLeftIcon, ArrowLongRightIcon, ArrowRightIcon} from "@heroicons/vue/24/solid";
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref, computed } from 'vue';
 
 interface Product {
   id: string;
@@ -26,6 +26,35 @@ const props = defineProps<{
     data: Product[];
   }
 }>();
+
+// Arrays pour stocker les filtres sélectionnés
+const selectedBrands = ref<string[]>([]);
+const selectedTypes = ref<string[]>([]);
+
+// Computed properties pour les options uniques
+const uniqueBrands = computed(() => {
+  return Array.from(new Set(props.products.data.map(product => product.brand)));
+});
+
+const uniqueTypes = computed(() => {
+  return Array.from(new Set(props.products.data.map(product => product.type)));
+});
+
+// Filtered products
+const filteredProducts = computed(() => {
+  if (selectedBrands.value.length === 0 && selectedTypes.value.length === 0) {
+    return props.products.data;
+  }
+
+  return props.products.data.filter(product => {
+    const brandMatch = selectedBrands.value.length === 0 || selectedBrands.value.includes(product.brand);
+    const typeMatch = selectedTypes.value.length === 0 || selectedTypes.value.includes(product.type);
+    return brandMatch && typeMatch;
+  });
+});
+
+// Computed pour vérifier s'il y a des résultats
+const hasResults = computed(() => filteredProducts.value.length > 0);
 
 const modules = [Pagination, Autoplay];
 
@@ -58,8 +87,10 @@ const getSlidesPerView = () => {
 const updateSlidesPerView = () => {
   // @ts-ignore
   const swiper = document.querySelector('.swiperProducts')?.swiper;
-  swiper.params.slidesPerView = getSlidesPerView();
-  swiper.update();
+  if (swiper) {
+    swiper.params.slidesPerView = getSlidesPerView();
+    swiper.update();
+  }
 };
 
 onMounted(() => {
@@ -79,8 +110,57 @@ onUnmounted(() => {
     <h1 class="text-5xl font-bold text-center md:text-left capitalize">
       Découvrez tous nos produits
     </h1>
+
+    <!-- Filtres -->
+    <div class="w-full flex flex-col gap-6 mt-8">
+      <!-- Filtres par marque -->
+      <div class="flex flex-col items-center gap-2">
+        <h3 class="font-semibold text-lg">Marques :</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          <label v-for="brand in uniqueBrands" :key="brand" class="flex items-center gap-2 cursor-pointer">
+            <input
+                type="checkbox"
+                :value="brand"
+                v-model="selectedBrands"
+                class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary"
+            >
+            <span class="select-none">{{ brand }}</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Filtres par type -->
+      <div class="flex flex-col items-center gap-2">
+        <h3 class="font-semibold text-lg">Types de produits :</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          <label v-for="type in uniqueTypes" :key="type" class="flex items-center gap-2 cursor-pointer">
+            <input
+                type="checkbox"
+                :value="type"
+                v-model="selectedTypes"
+                class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary"
+            >
+            <span class="select-none">{{ type }}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message quand aucun résultat -->
+    <div v-if="!hasResults" class="w-full text-center py-10">
+      <p class="text-xl text-gray-600">Aucun produit ne correspond à vos critères de recherche.</p>
+      <button
+          @click="selectedBrands = []; selectedTypes = []"
+          class="mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-opacity-90 transition-all"
+      >
+        Réinitialiser les filtres
+      </button>
+    </div>
+
+    <!-- Slider -->
     <ClientOnly>
       <Swiper
+          v-if="hasResults"
           :modules="modules"
           :slidesPerView="getSlidesPerView()"
           :spaceBetween="30"
@@ -89,7 +169,7 @@ onUnmounted(() => {
           :speed="2000"
           class="swiperProducts mt-10"
       >
-        <SwiperSlide v-for="product in products.data" :key="product.id">
+        <SwiperSlide v-for="product in filteredProducts" :key="product.id">
           <div class="relative h-[700px] card overflow-hidden border border-gray-300 flex flex-col items-center justify-between p-8 select-none">
             <div class="w-full h-[320px] overflow-hidden flex items-center justify-center">
               <img
@@ -120,7 +200,7 @@ onUnmounted(() => {
             </div>
           </div>
         </SwiperSlide>
-        <div class="w-full flex items-center justify-center gap-4 mt-5 ">
+        <div class="w-full flex items-center justify-center gap-4 mt-5">
           <button class="bg-tertiary p-4 rounded-full group" slot="prev" @click="goToPrev">
             <ArrowLeftIcon class="w-6 h-6 text-black transition-all group-hover:text-primary" />
           </button>
