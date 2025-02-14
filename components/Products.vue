@@ -89,10 +89,17 @@ const updateUrl = () => {
     query.types = selectedTypes.value;
   }
 
-  router.replace({
-    hash: '#products',
-    query
-  });
+  if (Object.keys(query).length > 0) {
+    router.replace({
+      hash: '#products',
+      query
+    });
+  } else {
+    router.replace({
+      hash: '',
+      query
+    });
+  }
 };
 
 watch([selectedBrands, selectedTypes], () => {
