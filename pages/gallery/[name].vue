@@ -5,7 +5,7 @@
     <p class="font-bold">/</p>
     <NuxtLink to="/gallery" class="text-white font-bold hover:text-primary transition-all duration-300 ease-in-out">Galerie</NuxtLink>
     <p class="text-primary font-bold">/</p>
-    <p class="text-primary font-bold">Poêles à granulés</p>
+    <p class="text-primary font-bold">{{ name }}</p>
   </TreeBanner>
 
   <div class="marge py-20 bg-white">
