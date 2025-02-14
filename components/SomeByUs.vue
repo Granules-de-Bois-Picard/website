@@ -22,7 +22,7 @@ const numbersMax = ref([
 numbersMax.value[2] = new Date().getFullYear() - 2006;
 
 const props = defineProps<{
-    cards: { imageUrl: string }[];
+    cards: string[];
 }>();
 
 const modules = [Pagination, Autoplay];
@@ -129,7 +129,8 @@ const goToPrev = () => {
         <SwiperSlide v-for="(card, index) in cards" :key="index">
           <div class="h-[500px] md:h-[600px] card bg-white shadow-lg group overflow-hidden">
             <!-- hover zoom in  -->
-            <img :src="card.imageUrl" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out" />
+            <img :src="card"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out" />
           </div>
         </SwiperSlide>
         <div class="w-full flex items-center justify-center gap-4 mt-5 ">

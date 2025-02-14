@@ -15,13 +15,15 @@ const cards = ref([]);
 
 async function fetchData() {
   try {
-    const [slidesResponse, productsResponse] = await Promise.all([
+    const [slidesResponse, productsResponse, cardsResponse] = await Promise.all([
       axios.get(import.meta.env.VITE_API_URL + `/api/slides`),
-      axios.get(import.meta.env.VITE_API_URL + `/api/products`)
+      axios.get(import.meta.env.VITE_API_URL + `/api/products`),
+      axios.get(import.meta.env.VITE_API_URL + `/api/gallery/nos-realisations`)
     ]);
 
     slides.value = slidesResponse.data.data;
     products.value = productsResponse.data;
+    cards.value = cardsResponse.data.data;
   } catch (error) {
     console.error('Erreur lors du chargement des données:', error);
     slides.value = [];
