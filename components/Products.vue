@@ -38,7 +38,6 @@ const selectedTypes = ref<string[]>([]);
 const selectedProduct = ref<Product | null>(null);
 const isModalOpen = ref(false);
 
-// Modal management
 const openModal = (product: Product) => {
   selectedProduct.value = product;
   isModalOpen.value = true;
@@ -50,7 +49,6 @@ const closeModal = () => {
   document.body.style.overflow = 'auto';
 };
 
-// Close modal on escape key
 onMounted(() => {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isModalOpen.value) {
@@ -59,7 +57,6 @@ onMounted(() => {
   });
 });
 
-// Initialiser les filtres depuis l'URL
 const initializeFiltersFromUrl = () => {
   const urlBrands = route.query.brands;
   const urlTypes = route.query.types;
@@ -77,7 +74,6 @@ const initializeFiltersFromUrl = () => {
           : [];
 };
 
-// Mettre à jour l'URL quand les filtres changent
 const updateUrl = () => {
   const query: Record<string, string[]> = {};
 
@@ -89,22 +85,33 @@ const updateUrl = () => {
     query.types = selectedTypes.value;
   }
 
-  if (Object.keys(query).length > 0) {
-    router.replace({
-      hash: '#products',
-      query
-    });
-  } else {
-    router.replace({
-      hash: '',
-      query
-    });
+  router.replace({
+    query,
+    hash: route.hash
+  });
+};
+
+const handleHashScroll = () => {
+  if (route.hash === '#products') {
+    const element = document.getElementById('products');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 };
 
 watch([selectedBrands, selectedTypes], () => {
   updateUrl();
 }, { deep: true });
+
+watch(
+    () => route.hash,
+    (newHash) => {
+      if (newHash === '#products') {
+        handleHashScroll();
+      }
+    }
+);
 
 watch(() => route.query, () => {
   initializeFiltersFromUrl();
@@ -169,6 +176,7 @@ const updateSlidesPerView = () => {
 onMounted(() => {
   window.addEventListener('resize', updateSlidesPerView);
   initializeFiltersFromUrl();
+  handleHashScroll();
 });
 
 onUnmounted(() => {
@@ -374,13 +382,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* On garde uniquement les styles qui ne peuvent pas être remplacés par Tailwind */
 .swiperProducts {
   width: 100%;
   height: 100%;
 }
 
-/* Animations qui ne peuvent pas être gérées par Tailwind */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -392,7 +398,6 @@ onUnmounted(() => {
   }
 }
 
-/* On ajoute les styles pour le scrollbar personnalisé car Tailwind ne les gère pas complètement */
 .scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: #888 #f1f1f1;
