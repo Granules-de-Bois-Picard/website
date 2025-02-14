@@ -1,7 +1,7 @@
 <template>
   <Header />
   <TreeBanner title="Galerie">
-    <NuxtLink to="/public" class="text-white font-bold hover:text-primary transition-all duration-300 ease-in-out">Accueil</NuxtLink>
+    <NuxtLink to="/" class="text-white font-bold hover:text-primary transition-all duration-300 ease-in-out">Accueil</NuxtLink>
     <p class="font-bold">/</p>
     <NuxtLink to="/gallery" class="text-white font-bold hover:text-primary transition-all duration-300 ease-in-out">Galerie</NuxtLink>
     <p class="text-primary font-bold">/</p>
