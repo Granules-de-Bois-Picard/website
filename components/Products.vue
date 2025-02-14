@@ -7,13 +7,24 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import {ArrowLeftIcon, ArrowLongRightIcon, ArrowRightIcon} from "@heroicons/vue/24/solid";
 import { onMounted, onUnmounted } from 'vue';
 
+interface Product {
+  id: string;
+  name: string;
+  thumbnail_url: string;
+  brand: string;
+  type: string;
+  model: string;
+  dimensions: string;
+  weight: string;
+  certifications: string;
+}
+
 const props = defineProps<{
-  cards: {
-    imageUrl: string;
-    title: string;
-    description: string;
-    isOnSale: boolean;
-  }[];
+  products: {
+    success: boolean;
+    message: string;
+    data: Product[];
+  }
 }>();
 
 const modules = [Pagination, Autoplay];
@@ -31,17 +42,17 @@ const goToPrev = () => {
 };
 
 const getSlidesPerView = () => {
-    const minCardWidth = 300;
-    const maxCardWidth = 350;
-    const windowWidth = window.innerWidth;
+  const minCardWidth = 300;
+  const maxCardWidth = 350;
+  const windowWidth = window.innerWidth;
 
-    if (windowWidth >= maxCardWidth * 1.5) {
-      return Math.floor(windowWidth / maxCardWidth);
-    } else if (windowWidth >= minCardWidth * 1.5) {
-      return Math.floor(windowWidth / minCardWidth);
-    } else {
-      return 1;
-    }
+  if (windowWidth >= maxCardWidth * 1.5) {
+    return Math.floor(windowWidth / maxCardWidth);
+  } else if (windowWidth >= minCardWidth * 1.5) {
+    return Math.floor(windowWidth / minCardWidth);
+  } else {
+    return 1;
+  }
 };
 
 const updateSlidesPerView = () => {
@@ -78,19 +89,29 @@ onUnmounted(() => {
           :speed="2000"
           class="swiperProducts mt-10"
       >
-        <SwiperSlide v-for="(card, index) in cards" :key="index">
+        <SwiperSlide v-for="product in products.data" :key="product.id">
           <div class="relative h-[700px] card overflow-hidden border border-gray-300 flex flex-col items-center justify-between p-8 select-none">
-            <img v-if="card.isOnSale" src="@/assets/promo.png" class="absolute top-0 right-0 w-20 h-20" alt="sale" />
-            <img :src="card.imageUrl" class="w-full p-6 object-cover hover:scale-110 transition-all duration-300 ease-in-out"  alt="stove"/>
+            <div class="w-full h-[320px] overflow-hidden flex items-center justify-center">
+              <img
+                  :src="product.thumbnail_url"
+                  class="w-auto h-full object-contain hover:scale-110 transition-all duration-300 ease-in-out"
+                  :alt="product.name"
+              />
+            </div>
             <div class="p-4 flex flex-col items-center justify-between w-full gap-6">
               <h3 class="text-2xl font-semibold hover:text-primary transition-all duration-300 ease-in-out text-center">
-                {{ card.title }}
+                {{ product.name }}
               </h3>
-              <p class="text-sm text-center">
-                {{ card.description }}
-              </p>
+              <div class="text-sm text-center flex flex-col gap-2">
+                <p><strong>Marque:</strong> {{ product.brand }}</p>
+                <p><strong>Type:</strong> {{ product.type }}</p>
+                <p><strong>Modèle:</strong> {{ product.model }}</p>
+                <p><strong>Dimensions:</strong> {{ product.dimensions }}</p>
+                <p><strong>Poids:</strong> {{ product.weight }}</p>
+                <p><strong>Certifications:</strong> {{ product.certifications }}</p>
+              </div>
               <NuxtLink
-                  to="/"
+                  :to="`/produits/${product.id}`"
                   class="text-white bg-primary px-6 py-2 rounded-full flex items-center gap-2 w-fit hover:bg-white hover:text-black transition-all duration-300 ease-in-out border-2 border-primary hover:border-gray-800"
               >
                 Détails
@@ -124,7 +145,9 @@ onUnmounted(() => {
 }
 
 .card img {
-  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .card .p-4 {
