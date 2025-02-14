@@ -37,7 +37,11 @@
   <div class="bg-green">
     <div class="marge py-20 flex flex-wrap items-start justify-center gap-10">
       <div class="flex-1 flex flex-col items-start justify-center gap-8 text-white text-left min-w-full md:min-w-[300px]">
-        <img src="@/assets/logo.png" alt="Logo Granulés de bois Picard" class="h-16 w-auto" />
+        <div class="flex gap-4">
+          <img src="@/assets/logo.png" alt="Logo Granulés de bois Picard" class="h-16 w-auto" />
+          <img src="https://gp-api.luwa.fr/storage/files/67aeccce13130_1739508942.png" alt="Ma Prime renov' logo" class="h-16 w-auto" />
+          <img src="https://gp-api.luwa.fr/storage/files/67aeccc69aa5e_1739508934.jpg" alt="Quali Bois logo" class="h-16 w-auto" />
+        </div>
         <p class="text-justify">Chez Granulés de bois Picard, nous vous proposons une large gamme de poêles à granulés, poêles à bois et poêles mixtes. Nous vous accompagnons dans le choix de votre poêle, son installation et son entretien.</p>
         <div class="flex gap-4">
           <PhoneIcon class="w-6 h-6 text-primary" />
