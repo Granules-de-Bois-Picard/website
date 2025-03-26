@@ -23,7 +23,7 @@ const error = ref(false);
 
 async function fetchBestSeller() {
   try {
-    const response = await axios.get(import.meta.env.VITE_API_URL + `/api/best-seller`);
+    const response = await axios.get(import.meta.env.VITE_API_URL + `/api/products/best-seller`);
     bestSeller.value = response.data.data;
   } catch (err) {
     console.error('Erreur lors du chargement du best-seller:', err);
