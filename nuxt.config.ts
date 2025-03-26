@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   ssr: true,
   nitro: {
-    preset: 'static'
+    preset: 'static',
+    prerender: {
+      routes: ['/news/qui-sommes-nous-1', '/faq', '/gallery', '/contact', '/news']
+    }
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
