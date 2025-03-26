@@ -1,75 +1,75 @@
-# Nuxt 3 Minimal Starter
+# Site Web Granulés de Bois Picard
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Ce dépôt contient le code source du site web officiel de Granulés de Bois Picard, une entreprise spécialisée dans la vente de granulés de bois et de poêles à granulés située à Corbie (80800).
 
-## Setup
+## Technologies utilisées
 
-Make sure to install the dependencies:
+- **Framework**: [Nuxt.js 3](https://nuxt.com/) (Vue.js)
+- **CSS**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icônes**: [Heroicons](https://heroicons.com/)
+- **Requêtes HTTP**: [Axios](https://axios-http.com/)
+- **Carrousel**: [Swiper](https://swiperjs.com/)
+
+## Prérequis
+
+- [Node.js](https://nodejs.org/) (version recommandée: LTS)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+
+## Installation
+
+1. Clonez ce dépôt
+2. Installez les dépendances :
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
+# ou
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+3. Créez un fichier `.env` à la racine du projet en vous basant sur le fichier `.env.example` :
 
-Start the development server on `http://localhost:3000`:
+```
+VITE_API_URL=<URL_de_votre_API>
+VITE_RECAPTCHA_SITE_KEY=<Votre_clé_reCAPTCHA>
+```
+
+## Développement
+
+Pour lancer le serveur de développement :
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
+# ou
 yarn dev
-
-# bun
-bun run dev
 ```
+
+Le site sera accessible à l'adresse http://localhost:8888
 
 ## Production
 
-Build the application for production:
+Pour générer le site statique :
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run generate
+# ou
+yarn generate
 ```
 
-Locally preview production build:
+Les fichiers générés se trouveront dans le dossier `.output/public`.
 
-```bash
-# npm
-npm run preview
+## Structure du projet
 
-# pnpm
-pnpm run preview
+- `assets/` : Contient les images, les fichiers CSS et autres ressources statiques
+- `components/` : Composants Vue réutilisables
+- `layouts/` : Mises en page de l'application
+- `pages/` : Pages du site (routage automatique par Nuxt)
+- `public/` : Fichiers accessibles publiquement (favicon, robots.txt, etc.)
+- `server/` : Configuration côté serveur
 
-# yarn
-yarn preview
+## Déploiement
 
-# bun
-bun run preview
-```
+Le site est configuré pour être déployé en tant que site statique. Un workflow GitHub Actions est disponible dans le dossier `.github/workflows/` pour automatiser le déploiement.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Licence
+
+Tous droits réservés © Granulés de Bois Picard
