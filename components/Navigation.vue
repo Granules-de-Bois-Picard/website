@@ -21,14 +21,14 @@ const openMenu = () => {
       <li>
         <NavigationButton to="/" text="À Propos" dropdown>
           <template #default>
-            <NavigationItemButton to="/" text="Qui sommes-nous ?" />
+            <NavigationItemButton to="/news/qui-sommes-nous-1" text="Qui sommes-nous ?" />
             <NavigationItemButton to="/faq" text="FAQ" />
             <NavigationItemButton to="/gallery" text="Galerie" />
           </template>
         </NavigationButton>
       </li>
       <li>
-        <NavigationButton to="#products" text="Nos Produits" />
+        <NavigationButton to="/#products" text="Nos Produits" />
       </li>
       <li>
         <NavigationButton to="/news" text="Actualités" />
@@ -60,14 +60,14 @@ const openMenu = () => {
           >
             <div v-show="!collapse" class="overflow-hidden">
               <div class="flex flex-col items-start gap-4 pt-4 pl-8">
-                <NavigationButton to="/" text="Qui sommes-nous ?" />
+                <NavigationButton to="/news/qui-sommes-nous-1" text="Qui sommes-nous ?" />
                 <NavigationButton to="/faq" text="FAQ" />
                 <NavigationButton to="/gallery" text="Galerie" />
               </div>
             </div>
           </Transition>
         </div>
-        <NavigationButton to="/" text="Nos Produits" />
+        <NavigationButton to="/#products" text="Nos Produits" />
         <NavigationButton to="/news" text="Actualités" />
         <NavigationButton to="/contact" text="Contact" />
       </div>
