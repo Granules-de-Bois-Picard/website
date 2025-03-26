@@ -41,11 +41,41 @@ onMounted(() => {
 });
 
 useHead({
-  title: "Accueil - Granulés de Bois Picard",
+  title: "Poêles à granulés et chauffage écologique - Granulés de Bois Picard",
   meta: [
     {
       name: "description",
-      content: "Découvrez nos produits et services de chauffage écologique et économique."
+      content: "Spécialiste des poêles à granulés en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois et poêles mixtes à Corbie et ses environs."
+    },
+    {
+      name: "keywords",
+      content: "poêle à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, économie d'énergie, chauffage économique, installation poêle, entretien poêle"
+    },
+    {
+      property: "og:title",
+      content: "Poêles à granulés et chauffage écologique - Granulés de Bois Picard"
+    },
+    {
+      property: "og:description",
+      content: "Spécialiste des poêles à granulés en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois et poêles mixtes à Corbie et ses environs."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://granulespicard.fr"
+    },
+    {
+      property: "og:image",
+      content: "https://granulespicard.fr/logo.png"
+    }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://granulespicard.fr"
     }
   ]
 });

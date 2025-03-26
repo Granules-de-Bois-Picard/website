@@ -107,11 +107,37 @@ onMounted(async () => {
 });
 
 useHead({
-  title: "Photos Poêles à granulés - Granulés de Bois Picard",
+  title: () => `Galerie ${name.value} - Photos de poêles à granulés - Granulés de Bois Picard`,
   meta: [
     {
       name: "description",
-      content: "Découvrez notre galerie de poêles à granulés."
+      content: () => `Découvrez notre galerie de photos ${name.value} présentant nos poêles à granulés, installations et réalisations de chauffage écologique en Picardie.`
+    },
+    {
+      name: "keywords",
+      content: () => `photos ${name.value}, galerie poêles à granulés, images chauffage écologique, réalisations poêles à bois, installation Picardie, modèles poêles`
+    },
+    {
+      property: "og:title",
+      content: () => `Galerie ${name.value} - Photos de poêles à granulés - Granulés de Bois Picard`
+    },
+    {
+      property: "og:description",
+      content: () => `Découvrez notre galerie de photos ${name.value} présentant nos poêles à granulés, installations et réalisations de chauffage écologique en Picardie.`
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: () => `https://granulespicard.fr/gallery/${name.value}`
+    }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: () => `https://granulespicard.fr/gallery/${name.value}`
     }
   ]
 });

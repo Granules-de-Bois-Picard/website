@@ -53,11 +53,37 @@ import ContactForm from "~/components/ContactForm.vue";
 import {PhoneIcon, ClockIcon, MapPinIcon, EnvelopeIcon} from "@heroicons/vue/24/outline";
 
 useHead({
-  title: "Contact - Granulés de Bois Picard",
+  title: "Contact - Poêles à granulés Granulés de Bois Picard à Corbie",
   meta: [
     {
       name: "description",
-      content: "Contactez-nous pour toute demande d'information."
+      content: "Contactez notre équipe de spécialistes en poêles à granulés à Corbie. Adresse: 29 Rue Jules Lardière, 80800 Corbie. Téléphone: 03 22 09 83 55."
+    },
+    {
+      name: "keywords",
+      content: "contact poêle à granulés, Corbie, Picardie, devis poêle à granulés, installation chauffage écologique, service client poêle à bois"
+    },
+    {
+      property: "og:title",
+      content: "Contact - Poêles à granulés Granulés de Bois Picard à Corbie"
+    },
+    {
+      property: "og:description",
+      content: "Contactez notre équipe de spécialistes en poêles à granulés à Corbie. Adresse: 29 Rue Jules Lardière, 80800 Corbie. Téléphone: 03 22 09 83 55."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://granulespicard.fr/contact"
+    }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://granulespicard.fr/contact"
     }
   ]
 });

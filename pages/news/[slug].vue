@@ -64,6 +64,40 @@ watch(() => article.value, (newArticle) => {
         {
           name: "description",
           content: () => newArticle.short_description || "Aucune description"
+        },
+        {
+          name: "keywords",
+          content: () => `poêle à granulés, chauffage écologique, ${newArticle.title}, Picardie, économie d'énergie, granulés de bois`
+        },
+        {
+          property: "og:title",
+          content: () => `${newArticle.title} - Granulés de Bois Picard`
+        },
+        {
+          property: "og:description",
+          content: () => newArticle.short_description || "Aucune description"
+        },
+        {
+          property: "og:type",
+          content: "article"
+        },
+        {
+          property: "og:url",
+          content: () => `https://granulespicard.fr/news/${newArticle.slug}`
+        },
+        {
+          property: "og:image",
+          content: () => newArticle.thumbnail || "https://granulespicard.fr/logo.png"
+        },
+        {
+          property: "article:published_time",
+          content: () => newArticle.created_at
+        }
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: () => `https://granulespicard.fr/news/${newArticle.slug}`
         }
       ]
     });

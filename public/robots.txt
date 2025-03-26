@@ -1,1 +1,3 @@
-
+User-agent: *
+Allow: /
+Sitemap: https://granulespicard.fr/sitemap.xml

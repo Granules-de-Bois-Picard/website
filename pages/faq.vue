@@ -34,11 +34,37 @@ onMounted(async () => {
 });
 
 useHead({
-  title: "FAQ - Granulés de Bois Picard",
+  title: "FAQ - Questions fréquentes sur les poêles à granulés - Granulés de Bois Picard",
   meta: [
     {
       name: "description",
-      content: "Retrouvez les réponses aux questions les plus fréquemment posées sur les poêles à granulés."
+      content: "Retrouvez les réponses aux questions fréquentes sur les poêles à granulés, leur installation, entretien et fonctionnement. Tout savoir sur le chauffage écologique."
+    },
+    {
+      name: "keywords",
+      content: "FAQ poêle à granulés, questions fréquentes chauffage écologique, entretien poêle à bois, installation poêle à granulés, consommation granulés, rendement poêle, économies chauffage"
+    },
+    {
+      property: "og:title",
+      content: "FAQ - Questions fréquentes sur les poêles à granulés - Granulés de Bois Picard"
+    },
+    {
+      property: "og:description",
+      content: "Retrouvez les réponses aux questions fréquentes sur les poêles à granulés, leur installation, entretien et fonctionnement. Tout savoir sur le chauffage écologique."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://granulespicard.fr/faq"
+    }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://granulespicard.fr/faq"
     }
   ]
 });

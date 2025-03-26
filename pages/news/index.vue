@@ -121,13 +121,39 @@ onMounted(() => {
 });
 
 useHead({
-  title: "News - Granulés de Bois Picard",
+  title: "Actualités - Innovations et tendances poêles à granulés - Granulés de Bois Picard",
   meta: [
     {
       name: "description",
-      content: "Découvrez nos dernières actualités.",
+      content: "Suivez les dernières actualités sur les poêles à granulés, les innovations en chauffage écologique et les tendances du marché des énergies renouvelables."
     },
+    {
+      name: "keywords",
+      content: "actualités poêles à granulés, nouveautés chauffage écologique, tendances énergies renouvelables, innovations poêles à bois, économies d'énergie, aides financières chauffage"
+    },
+    {
+      property: "og:title",
+      content: "Actualités - Innovations et tendances poêles à granulés - Granulés de Bois Picard"
+    },
+    {
+      property: "og:description",
+      content: "Suivez les dernières actualités sur les poêles à granulés, les innovations en chauffage écologique et les tendances du marché des énergies renouvelables."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://granulespicard.fr/news"
+    }
   ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://granulespicard.fr/news"
+    }
+  ]
 });
 
 const formatDate = (date: string) => {
