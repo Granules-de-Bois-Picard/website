@@ -20,6 +20,7 @@ interface Product {
 const bestSeller = ref<Product | null>(null);
 const isLoading = ref(true);
 const error = ref(false);
+const imageError = ref(false);
 
 async function fetchBestSeller() {
   try {
@@ -31,6 +32,10 @@ async function fetchBestSeller() {
   } finally {
     isLoading.value = false;
   }
+}
+
+function handleImageError() {
+  imageError.value = true;
 }
 
 onMounted(() => {
@@ -50,7 +55,18 @@ onMounted(() => {
     
     <template v-else-if="bestSeller">
       <div class="flex-1 flex items-center justify-center">
-        <img :src="bestSeller.thumbnail_url" :alt="bestSeller.name" class="w-2/3 object-contain" />
+        <img 
+          v-if="!imageError" 
+          :src="bestSeller.thumbnail_url" 
+          :alt="bestSeller.name" 
+          class="w-2/3 object-contain" 
+          @error="handleImageError"
+        />
+        <div 
+          v-else 
+          class="image-placeholder w-2/3 aspect-square flex items-center justify-center">
+          <span class="text-center font-medium">{{ bestSeller.name }}</span>
+        </div>
       </div>
       <div class="flex flex-col gap-4 w-full md:w-1/2 items-center justify-center md:items-start">
         <h2 class="font-canveat text-4xl text-primary">
@@ -118,5 +134,14 @@ onMounted(() => {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.image-placeholder {
+  background-color: #f3f3f3;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  color: #666;
+  padding: 1rem;
+  max-height: 300px;
 }
 </style>
