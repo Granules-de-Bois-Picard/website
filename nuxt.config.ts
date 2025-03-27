@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/faq', '/gallery', '/contact', '/news']
+      routes: ['/faq', '/gallery', '/contact', '/news', '/gallery/MCZ', '/gallery/Nobis'],
     }
   },
   hooks: {
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
           console.log('Ajout de routes statiques de secours...');
           
           // Routes de secours pour les galeries (à adapter selon vos besoins)
-          const fallbackGalleryRoutes = ['poeles', 'installations', 'showroom'];
+          const fallbackGalleryRoutes = ['poeles', 'installations', 'showroom', 'MCZ'];
           const galleryRoutes = fallbackGalleryRoutes.map(folder => `/gallery/${folder}`);
           nitroConfig.prerender.routes.push(...galleryRoutes);
           console.log('Routes de galerie de secours ajoutées:', galleryRoutes);
