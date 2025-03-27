@@ -14,7 +14,9 @@ export default defineNuxtConfig({
         try {
           // Récupérer les noms des galeries depuis l'API
           const axios = await import('axios');
-          const response = await axios.default.get(process.env.VITE_API_URL + '/api/galleries');
+          // Utiliser import.meta.env au lieu de process.env pour être cohérent avec les composants
+          const apiUrl = process.env.VITE_API_URL || 'http://localhost:3000';
+          const response = await axios.default.get(apiUrl + '/api/galleries');
           
           if (response.data.success && Array.isArray(response.data.data)) {
             // Ajouter les routes dynamiques des galeries
@@ -24,7 +26,7 @@ export default defineNuxtConfig({
           }
           
           // Récupérer les slugs des articles depuis l'API
-          const articlesResponse = await axios.default.get(process.env.VITE_API_URL + '/api/articles');
+          const articlesResponse = await axios.default.get(apiUrl + '/api/articles');
           
           if (articlesResponse.data.success && Array.isArray(articlesResponse.data.data)) {
             // Ajouter les routes dynamiques des articles
