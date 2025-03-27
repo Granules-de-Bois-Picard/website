@@ -11,52 +11,64 @@ const modules = [Pagination, Autoplay];
 
 const testimonials = ref([
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Une equipe très professionnelle qui a su mener à bien un chantier qui, d'après d'autres installateurs était quasi impossible (Il s'agit d'une pose d'un insert à granulés dans une cheminée existante). Le chantier a été réalisé en 1/2 journée. Je suis ravi de voir qu'il existe encore de vrais techniciens et pas seulement des commerciaux. Je recommande vraiment cet installateur si vous cherchez du professionnalisme, des conseils et une équipe sympathique.",
+    "fullName": "Florent Gallet Carnaby",
+    "position": "Utilisateur",
+    "imageUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVEtnU5Qc6l9mCEhnZRWaIOEcPPh_cdAt_PUYv4uo_3y_WcShv4=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Poêle installé depuis plus de 7 mois maintenant, rien à redire. Installation propre, équipe très réactif et toujours disponible en cas de problème. Je recommande fortement.",
+    "fullName": "Cedric Marelille",
+    "position": "Utilisateur",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocIzZ4zS1AYhdAL_9ISkWJ3WmdUUK3YIPpqqc8WT19lKseTi2A=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Cela fera 11 ans que l'entreprise familiale a installé ce poêle à granulés. Les normes ont évolués, et bien dans un souci de conscience et de ''rassurance'', GRANULES DE BOIS PICARD MCZ A CORBIE, Artisans engagés et fiables ont su aussi me satisfaire à cette remise aux normes alors qu'elle n'en était même pas tenu. Bravo et félicitations !!",
+    "fullName": "Pierre Coutelier",
+    "position": "Utilisateur",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocJYXWwrOakk-QOZxMu9pt34jEcfOcNhqeXMdUxTPLZ_9h0rRg=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Nous avons installé un poêle à granules par le biais de cette entreprise. L'équipe est très professionnelle, travail propre, soigné, et d'une très grande propreté et de qualité. Je la recommande vivement.",
+    "fullName": "Laurence Bernard",
+    "position": "Utilisatrice",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocLI3YKmkNNXaS8EBaU0w0KEuz04rQfV_--ILgRbCzz_XXfLVw=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Installation effectuée fin août dernier. Une équipe très professionnelle et à l'écoute. Chantier hyper soigné et très propre. Félicitations ! Nous recommandons vivement cet installateur.",
+    "fullName": "Stef Dess",
+    "position": "Utilisateur",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocKaRB-mjA49tNYWQPSweWahENcZgSflMtYmj7ZYJwGOb0e3Kg=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Poêle ego maestro fraîchement installé, je suis satisfaite de mon achat. Très bien conseillée lors du choix du poêle, j'ai fait confiance à granulés de bois picard. Quant à l'installation du poêle, rien à redire. Travail très propre, je suis dautant plus ravis. 😁😁. Merci à vous 3 👌👌",
+    "fullName": "ROUSSEAUX Laetitia",
+    "position": "Utilisatrice",
+    "imageUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVh6qVd7LgppIraIc_ptyIgeaDGozwOnM4Xx6_m03okkWKISEA=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Entreprise sérieuse qui donne de bons conseils sur le choix du poêle. Nous propose celui qui correspond à nos besoins sans pour autant nous proposer le modèle le plus cher. Valentin est très professionnel et minutieux lors de la pose du poêle. Équipe au top",
+    "fullName": "Cindy Pecqueux",
+    "position": "Utilisatrice",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocKyMayr3mudVtJz5XZGBKqqTeVGigq7MYjv9Ji0JoQrjYLa3A=s120-c-rp-mo-br100"
   },
   {
-    comment: "Entreprise très sérieuse, à l ' écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
-    fullName: "Jennifer .A",
-    position: "Utilisatrice",
-    imageUrl: "https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    "comment": "Entreprise très sérieuse, à l'écoute de ses clients, les conseils sont judicieux et avisés. Je recommande vivement cette entreprise qui a travaillé avec rapidité et efficacité et à repondu à mes attentes. Merci à Valentin et son équipe.",
+    "fullName": "Jennifer A",
+    "position": "Utilisatrice",
+    "imageUrl": "https://lh3.googleusercontent.com/a-/ALV-UjW9WNbPD2Lx3p37MPx68ojE_5SH-1wyAAduPjctppxiqAXiyiI=s120-c-rp-mo-br100"
+  },
+  {
+    "comment": "Installation d'un poêle à granulé lundi 27 décembre. Équipe au top, travail propre et soigné. Je recommande vivement cette entreprise.",
+    "fullName": "Jonathan Schaubroeck",
+    "position": "Utilisateur",
+    "imageUrl": "https://lh3.googleusercontent.com/a/ACg8ocKO88QMeup2BgDALAOKzrREZOlk4xeXfa9ydCwyifmbvwQx4g=s120-c-rp-mo-br100"
+  },
+  {
+    "comment": "Très satisfaite de l'installation de mon poêle MCZ, l'équipe est de très bon conseil et le travail bien fait. Je les recommande les yeux fermés !",
+    "fullName": "Steph Valo",
+    "position": "Utilisatrice",
+    "imageUrl": "https://lh3.googleusercontent.com/a-/ALV-UjXw5mC04iL4-_CprxUAm1M7vNAIGl6qs9dCiwgvzOlBLYr6BJNa=s120-c-rp-mo-br100"
   }
 ])
 
