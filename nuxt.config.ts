@@ -8,6 +8,36 @@ export default defineNuxtConfig({
       routes: ['/faq', '/gallery', '/contact', '/news']
     }
   },
+  hooks: {
+    async 'nitro:config' (nitroConfig) {
+      if (nitroConfig?.prerender?.routes && Array.isArray(nitroConfig.prerender.routes)) {
+        try {
+          // Récupérer les noms des galeries depuis l'API
+          const axios = await import('axios');
+          const response = await axios.default.get(process.env.VITE_API_URL + '/api/galleries');
+          
+          if (response.data.success && Array.isArray(response.data.data)) {
+            // Ajouter les routes dynamiques des galeries
+            const galleryRoutes = response.data.data.map(folder => `/gallery/${folder}`);
+            nitroConfig.prerender.routes.push(...galleryRoutes);
+            console.log('Routes de galerie ajoutées pour le prérendu:', galleryRoutes);
+          }
+          
+          // Récupérer les slugs des articles depuis l'API
+          const articlesResponse = await axios.default.get(process.env.VITE_API_URL + '/api/articles');
+          
+          if (articlesResponse.data.success && Array.isArray(articlesResponse.data.data)) {
+            // Ajouter les routes dynamiques des articles
+            const articleRoutes = articlesResponse.data.data.map(article => `/news/${article.slug}`);
+            nitroConfig.prerender.routes.push(...articleRoutes);
+            console.log('Routes d\'articles ajoutées pour le prérendu:', articleRoutes);
+          }
+        } catch (error) {
+          console.error('Erreur lors de la récupération des routes dynamiques:', error);
+        }
+      }
+    }
+  },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
