@@ -4,7 +4,15 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'static',
     prerender: {
-      routes: ['/faq', '/gallery', '/contact', '/news', '/news/**', '/gallery/**']
+      routes: [
+        '/',
+        '/faq', 
+        '/gallery', 
+        '/contact', 
+        '/news',
+        '/gallery/[name]',
+        '/news/[slug]',
+      ]
     }
   },
   compatibilityDate: '2024-04-03',
