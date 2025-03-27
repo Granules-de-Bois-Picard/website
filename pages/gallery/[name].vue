@@ -17,16 +17,15 @@
       </div>
     </div>
 
-    <div v-else class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div v-for="(group, index) in imageGroups" :key="index" class="grid gap-4">
-        <div v-for="(imageUrl, imgIndex) in group" :key="imgIndex">
-          <img
-              :src="imageUrl"
-              :alt="`Image ${index}-${imgIndex}`"
-              class="h-auto max-w-full rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-              @click="openModal(imageUrl)"
-          />
-        </div>
+    <div v-else class="masonry-grid">
+      <div v-for="(imageUrl, index) in images" :key="index" class="masonry-item">
+        <img
+          :src="imageUrl"
+          :alt="`Image ${index}`"
+          class="rounded-lg cursor-pointer hover:scale-[1.02] hover:shadow-lg transition-all duration-300 ease-in-out"
+          @click="openModal(imageUrl)"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
@@ -56,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import {ArrowPathIcon} from "@heroicons/vue/24/outline";
@@ -67,21 +66,7 @@ const loading = ref(true); // Initialisé à true
 const images = ref<string[]>([]);
 const selectedImage = ref<string | null>(null);
 
-const imageGroups = computed(() => {
-  const groups = [];
-  const itemsPerGroup = Math.ceil(images.value.length / 4);
 
-  for (let i = 0; i < 4; i++) {
-    const start = i * itemsPerGroup;
-    const end = start + itemsPerGroup;
-    const group = images.value.slice(start, end);
-    if (group.length) {
-      groups.push(group);
-    }
-  }
-
-  return groups;
-});
 
 const openModal = (imageUrl: string) => {
   selectedImage.value = imageUrl;
@@ -142,3 +127,42 @@ useHead({
   ]
 });
 </script>
+
+<style scoped>
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+</style>
