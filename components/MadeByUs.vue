@@ -13,7 +13,7 @@
       <div class="flex-1 flex items-center justify-center w-full sm:w-1/2 lg:w-1/4 cursor-pointer">
         <div class="relative flex flex-col items-center justify-center gap-4 max-w-[350px] min-w-[255px]">
           <div class="relative w-72 h-72 rounded-full overflow-hidden flex items-center justify-center bg-white">
-            <img src="https://gp-api.luwa.fr/storage/files/67a0a6fda58fc_1738581757.jpg" alt="Poêle à bois" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
+            <img src="https://api.granulespicard.fr/storage/files/67a0a6fda58fc_1738581757.jpg" alt="Poêle à bois" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
           </div>
           <h3 class="text-2xl font-semibold mt-5 md:mt-10 hover:text-primary transition-all duration-300 ease-in-out">
             Pôele à granulés
@@ -26,7 +26,7 @@
       <div class="flex-1 flex items-center justify-center w-full sm:w-1/2 lg:w-1/4 cursor-pointer">
         <div class="relative flex flex-col items-center justify-center gap-4 max-w-[350px] min-w-[255px]">
           <div class="relative w-72 h-72 rounded-full overflow-hidden flex items-center justify-center bg-white">
-            <img src="https://gp-api.luwa.fr/storage/files/67a0a7022cf86_1738581762.jpg" alt="Poêle à granulés" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
+            <img src="https://api.granulespicard.fr/storage/files/67a0a7022cf86_1738581762.jpg" alt="Poêle à granulés" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
           </div>
           <h3 class="text-2xl font-semibold mt-5 md:mt-10 hover:text-primary transition-all duration-300 ease-in-out">
             Poêle à bois
@@ -39,7 +39,7 @@
       <div class="flex-1 flex items-center justify-center w-full sm:w-1/2 lg:w-1/4 cursor-pointer">
         <div class="relative flex flex-col items-center justify-center gap-4 max-w-[350px] min-w-[255px]">
           <div class="relative w-72 h-72 rounded-full overflow-hidden flex items-center justify-center bg-white">
-            <img src="https://gp-api.luwa.fr/storage/files/67a0a70541df1_1738581765.jpg" alt="Poêle à pellets" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
+            <img src="https://api.granulespicard.fr/storage/files/67a0a70541df1_1738581765.jpg" alt="Poêle à pellets" class="absolute rounded-full w-[85%] h-[85%] object-cover transition-all duration-300 ease-in-out hover:scale-110" />
           </div>
           <h3 class="text-2xl font-semibold mt-5 md:mt-10 hover:text-primary transition-all duration-300 ease-in-out">
             Poêle mixte
