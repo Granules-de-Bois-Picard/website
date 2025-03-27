@@ -21,7 +21,7 @@ const openMenu = () => {
       <li>
         <NavigationButton to="/" text="À Propos" dropdown>
           <template #default>
-            <NavigationItemButton to="/news/qui-sommes-nous-1" text="Qui sommes-nous ?" />
+            <NavigationItemButton to="/news/qui-sommes-nous" text="Qui sommes-nous ?" />
             <NavigationItemButton to="/faq" text="FAQ" />
             <NavigationItemButton to="/gallery" text="Galerie" />
           </template>
@@ -60,7 +60,7 @@ const openMenu = () => {
           >
             <div v-show="!collapse" class="overflow-hidden">
               <div class="flex flex-col items-start gap-4 pt-4 pl-8">
-                <NavigationButton to="/news/qui-sommes-nous-1" text="Qui sommes-nous ?" />
+                <NavigationButton to="/news/qui-sommes-nous" text="Qui sommes-nous ?" />
                 <NavigationButton to="/faq" text="FAQ" />
                 <NavigationButton to="/gallery" text="Galerie" />
               </div>
