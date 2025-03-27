@@ -14,8 +14,12 @@ export default defineNuxtConfig({
         try {
           // Récupérer les noms des galeries depuis l'API
           const axios = await import('axios');
-          // Utiliser import.meta.env au lieu de process.env pour être cohérent avec les composants
+          // Définir l'URL de l'API avec une valeur par défaut
           const apiUrl = process.env.VITE_API_URL || 'http://localhost:3000';
+          console.log('Utilisation de l\'URL API pour le prérendu:', apiUrl);
+          
+          // Récupérer les noms des galeries
+          console.log('Récupération des galeries pour le prérendu...');
           const response = await axios.default.get(apiUrl + '/api/galleries');
           
           if (response.data.success && Array.isArray(response.data.data)) {
@@ -23,9 +27,12 @@ export default defineNuxtConfig({
             const galleryRoutes = response.data.data.map(folder => `/gallery/${folder}`);
             nitroConfig.prerender.routes.push(...galleryRoutes);
             console.log('Routes de galerie ajoutées pour le prérendu:', galleryRoutes);
+          } else {
+            console.warn('Aucune galerie trouvée ou format de réponse incorrect');
           }
           
-          // Récupérer les slugs des articles depuis l'API
+          // Récupérer les slugs des articles
+          console.log('Récupération des articles pour le prérendu...');
           const articlesResponse = await axios.default.get(apiUrl + '/api/articles');
           
           if (articlesResponse.data.success && Array.isArray(articlesResponse.data.data)) {
@@ -33,9 +40,13 @@ export default defineNuxtConfig({
             const articleRoutes = articlesResponse.data.data.map(article => `/news/${article.slug}`);
             nitroConfig.prerender.routes.push(...articleRoutes);
             console.log('Routes d\'articles ajoutées pour le prérendu:', articleRoutes);
+          } else {
+            console.warn('Aucun article trouvé ou format de réponse incorrect');
           }
         } catch (error) {
           console.error('Erreur lors de la récupération des routes dynamiques:', error);
+          // Ajouter des routes statiques de secours si l'API n'est pas disponible
+          console.log('Ajout de routes statiques de secours...');
         }
       }
     }
