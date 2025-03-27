@@ -47,6 +47,18 @@ export default defineNuxtConfig({
           console.error('Erreur lors de la récupération des routes dynamiques:', error);
           // Ajouter des routes statiques de secours si l'API n'est pas disponible
           console.log('Ajout de routes statiques de secours...');
+          
+          // Routes de secours pour les galeries (à adapter selon vos besoins)
+          const fallbackGalleryRoutes = ['poeles', 'installations', 'showroom'];
+          const galleryRoutes = fallbackGalleryRoutes.map(folder => `/gallery/${folder}`);
+          nitroConfig.prerender.routes.push(...galleryRoutes);
+          console.log('Routes de galerie de secours ajoutées:', galleryRoutes);
+          
+          // Routes de secours pour les articles (à adapter selon vos besoins)
+          const fallbackArticleRoutes = ['qui-sommes-nous-1', 'actualite-2', 'actualite-3'];
+          const articleRoutes = fallbackArticleRoutes.map(slug => `/news/${slug}`);
+          nitroConfig.prerender.routes.push(...articleRoutes);
+          console.log('Routes d\'articles de secours ajoutées:', articleRoutes);
         }
       }
     }
