@@ -14,7 +14,7 @@ const numbers = ref([
 ]);
 
 const numbersMax = ref([
-    3000,
+    2000,
     2,
     0
 ]);
