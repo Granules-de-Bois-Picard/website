@@ -42,7 +42,7 @@ useHead({
     },
     {
       name: "keywords",
-      content: "FAQ poêle à granulés, questions fréquentes chauffage écologique, entretien poêle à bois, installation poêle à granulés, consommation granulés, rendement poêle, économies chauffage"
+      content: "FAQ poêle à granulés, questions fréquentes chauffage écologique, entretien poêle à bois, installation poêle à granulés, consommation granulés, rendement poêle, économies chauffage, Amiens, Albert, Somme, Villers Bretonneux, Picardie, Corbie, pose poêle, chauffage à faible consommation, spécialiste poêles à granulés"
     },
     {
       property: "og:title",

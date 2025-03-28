@@ -49,7 +49,7 @@ useHead({
     },
     {
       name: "keywords",
-      content: "poêle à granulés, poêle à pellets, insert à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, économie d'énergie, chauffage économique, installation poêle, entretien poêle, MCZ, Nobis, Qualibois RGE, Flamme Verte, poêle mixte, énergie renouvelable"
+      content: "poêle à granulés, poêle à pellets, insert à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, Amiens, Albert, Somme, Villers Bretonneux, économie d'énergie, chauffage économique, installation poêle, entretien poêle, MCZ, Nobis, Qualibois RGE, Flamme Verte, poêle mixte, énergie renouvelable, pose poêle, chauffage à faible consommation, spécialiste poêles à granulés"
     },
     {
       property: "og:title",
