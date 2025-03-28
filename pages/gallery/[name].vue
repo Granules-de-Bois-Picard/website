@@ -92,11 +92,15 @@ onMounted(async () => {
 });
 
 useHead({
-  title: () => `Galerie ${name.value} - Photos de poêles à granulés - Granulés de Bois Picard`,
+  title: () => `Galerie ${name.value} - Photos de poêles à granulés et inserts - Granulés de Bois Picard`,
   meta: [
     {
       name: "description",
-      content: () => `Découvrez notre galerie de photos ${name.value} présentant nos poêles à granulés, installations et réalisations de chauffage écologique en Picardie.`
+      content: () => `Découvrez notre galerie de photos ${name.value} présentant nos poêles à granulés, poêles à bois, inserts et installations de chauffage écologique en Picardie. Qualibois RGE, MCZ, Nobis.`
+    },
+    {
+      name: "keywords",
+      content: () => `galerie ${name.value}, photos poêles à granulés, poêle à pellets, insert à granulés, insert à bois, chauffage écologique, MCZ, Nobis, installations Picardie, poêle mixte, chauffage biomasse, Qualibois RGE, Flamme Verte`
     },
     {
       name: "keywords",

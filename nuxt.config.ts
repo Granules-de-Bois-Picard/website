@@ -78,8 +78,8 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'Granulés de Bois Picard - Poêles à granulés en Picardie',
       meta: [
-        { name: 'description', content: 'Spécialiste des poêles à granulés en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois et poêles mixtes.' },
-        { name: 'keywords', content: 'poêle à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, économie d\'énergie, chauffage économique, installation poêle, entretien poêle' },
+        { name: 'description', content: 'Spécialiste des poêles à granulés et inserts en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois, inserts et poêles mixtes. Qualibois RGE, MCZ, Nobis.' },
+        { name: 'keywords', content: 'poêle à granulés, poêle à pellets, insert à granulés, insert à bois, poêle à bûches, poêle mixte, chauffage écologique, granulés de bois, Picardie, Corbie, économie d\'énergie, chauffage économique, installation poêle, entretien poêle, MCZ, Nobis, Qualibois RGE, Flamme Verte, énergie renouvelable, chauffage biomasse' },
         { name: 'robots', content: 'index, follow' },
         { name: 'author', content: 'Granulés de Bois Picard' },
         { property: 'og:title', content: 'Granulés de Bois Picard - Poêles à granulés en Picardie' },

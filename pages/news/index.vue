@@ -121,15 +121,15 @@ onMounted(() => {
 });
 
 useHead({
-  title: "Actualités - Innovations et tendances poêles à granulés - Granulés de Bois Picard",
+  title: "Actualités - Innovations et tendances poêles à granulés et inserts - Granulés de Bois Picard",
   meta: [
     {
       name: "description",
-      content: "Suivez les dernières actualités sur les poêles à granulés, les innovations en chauffage écologique et les tendances du marché des énergies renouvelables."
+      content: "Suivez les dernières actualités sur les poêles à granulés, inserts et chauffage écologique. Découvrez les innovations MCZ et Nobis, les aides financières et conseils d'économie d'énergie."
     },
     {
       name: "keywords",
-      content: "actualités poêles à granulés, nouveautés chauffage écologique, tendances énergies renouvelables, innovations poêles à bois, économies d'énergie, aides financières chauffage"
+      content: "actualités poêles à granulés, poêle à pellets, insert à granulés, insert à bois, nouveautés chauffage écologique, tendances énergies renouvelables, innovations poêles à bois, économies d'énergie, aides financières chauffage, MCZ, Nobis, Qualibois RGE, Flamme Verte, chauffage biomasse, rénovation énergétique"
     },
     {
       property: "og:title",

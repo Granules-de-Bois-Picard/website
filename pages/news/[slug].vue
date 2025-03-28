@@ -67,7 +67,7 @@ watch(() => article.value, (newArticle) => {
         },
         {
           name: "keywords",
-          content: () => `poêle à granulés, chauffage écologique, ${newArticle.title}, Picardie, économie d'énergie, granulés de bois`
+          content: () => `poêle à granulés, poêle à pellets, insert à granulés, insert à bois, chauffage écologique, ${newArticle.title}, Picardie, économie d'énergie, granulés de bois, MCZ, Nobis, Qualibois RGE, Flamme Verte, chauffage biomasse, énergie renouvelable, poêle mixte`
         },
         {
           property: "og:title",

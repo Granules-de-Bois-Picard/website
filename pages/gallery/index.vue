@@ -80,6 +80,42 @@ onMounted(async () => {
 });
 
 useHead({
+  title: "Galerie photos - Poêles à granulés et inserts - Granulés de Bois Picard",
+  meta: [
+    {
+      name: "description",
+      content: "Découvrez notre galerie de photos de poêles à granulés, inserts à bois et réalisations d'installations. Showroom MCZ et Nobis à Corbie en Picardie."
+    },
+    {
+      name: "keywords",
+      content: "galerie poêles à granulés, photos poêles à bois, showroom MCZ, showroom Nobis, installations chauffage écologique, insert à granulés, insert à bois, poêle mixte, réalisations chauffage biomasse, photos installations Picardie"
+    },
+    {
+      property: "og:title",
+      content: "Galerie photos - Poêles à granulés et inserts - Granulés de Bois Picard"
+    },
+    {
+      property: "og:description",
+      content: "Découvrez notre galerie de photos de poêles à granulés, inserts à bois et réalisations d'installations. Showroom MCZ et Nobis à Corbie en Picardie."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://granulespicard.fr/gallery"
+    }
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://granulespicard.fr/gallery"
+    }
+  ]
+});
+
+useHead({
   title: "Galerie photos - Poêles à granulés et réalisations - Granulés de Bois Picard",
   meta: [
     {

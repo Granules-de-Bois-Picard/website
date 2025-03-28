@@ -41,15 +41,15 @@ onMounted(() => {
 });
 
 useHead({
-  title: "Poêles à granulés et chauffage écologique - Granulés de Bois Picard",
+  title: "Poêles à granulés et chauffage écologique en Picardie - Granulés de Bois Picard",
   meta: [
     {
       name: "description",
-      content: "Spécialiste des poêles à granulés en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois et poêles mixtes à Corbie et ses environs."
+      content: "Spécialiste des poêles à granulés et inserts en Picardie. Vente, installation et entretien de poêles à granulés, poêles à bois, poêles mixtes et inserts à Corbie. Qualibois RGE, MCZ, Nobis."
     },
     {
       name: "keywords",
-      content: "poêle à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, économie d'énergie, chauffage économique, installation poêle, entretien poêle"
+      content: "poêle à granulés, poêle à pellets, insert à granulés, poêle à bois, chauffage écologique, granulés de bois, Picardie, Corbie, économie d'énergie, chauffage économique, installation poêle, entretien poêle, MCZ, Nobis, Qualibois RGE, Flamme Verte, poêle mixte, énergie renouvelable"
     },
     {
       property: "og:title",
