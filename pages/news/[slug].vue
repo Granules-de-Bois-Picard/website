@@ -13,12 +13,20 @@
         <ArrowPathIcon class="w-10 h-10 text-primary animate-spin" />
       </div>
     </div>    <div v-else-if="article" class="w-full max-w-4xl">
-      <img 
-        :src="article.thumbnail" 
-        :alt="article.title" 
-        class="w-full h-64 object-cover mb-8 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300" 
-        @click="openImageModal"
-      />
+      <div class="relative group mb-8">
+        <img 
+          :src="article.thumbnail" 
+          :alt="article.title" 
+          class="w-full h-64 object-cover rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 group-hover:brightness-95" 
+          @click="openImageModal"
+        />
+        <!-- Tooltip hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div class="bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
+            Cliquez pour agrandir
+          </div>
+        </div>
+      </div>
       <h1 class="text-4xl font-bold mb-4 text-gray-800">{{ article.title }}</h1>
       <p class="text-gray-600 mb-8 text-lg">{{ article.short_description }}</p>
       <div v-html="article.content" class="article-content prose prose-lg max-w-none"></div>
