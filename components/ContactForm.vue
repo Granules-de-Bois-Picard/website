@@ -15,6 +15,11 @@
       </div>
 
       <div class="mb-6">
+        <label for="phone" class="block text-sm text-gray-700 mb-2">Numéro de téléphone</label>
+        <input v-model="formData.phone" type="tel" id="phone" placeholder="06 12 34 56 78" class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" required pattern="^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$" />
+      </div>
+
+      <div class="mb-6">
         <label for="message" class="block text-sm text-gray-700 mb-2">Message</label>
         <textarea v-model="formData.message" id="message" placeholder="Votre message..." class="block w-full placeholder-gray-500 rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200" required minlength="10" maxlength="500"></textarea>
       </div>
@@ -52,6 +57,7 @@ const responseClass = ref('');
 const formData = ref({
   fullname: '',
   email: '',
+  phone: '',
   message: ''
 });
 
@@ -93,6 +99,7 @@ const handleSubmit = async () => {
     from: formData.value.email,
     subject: 'Nouvelle demande de contact de ' + formData.value.fullname,
     full_name: formData.value.fullname,
+    phone: formData.value.phone,
     body: formData.value.message
   }
 
